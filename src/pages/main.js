@@ -3,12 +3,10 @@ import { Outlet } from 'react-router-dom'
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
   } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
-const { Header, Sider, Content } = Layout;
+import { Button, Layout, theme } from 'antd';
+import CommonAside from '../components/commonAside';
+const { Header, Content } = Layout;
 
 const Main = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -18,34 +16,7 @@ const Main = () => {
 
     return (
         <Layout className='main-container'>
-            <Sider trigger={null} collapsible collapsed={collapsed}>
-                <div className='app-name'>应用</div>
-                <Menu
-                    theme="dark"
-                    mode="inline"
-                    defaultSelectedKeys={['1']}
-                    style={{
-                        height: "100%"
-                    }}
-                    items={[
-                        {
-                            key: '1',
-                            icon: <UserOutlined />,
-                            label: 'nav 1',
-                        },
-                        {
-                            key: '2',
-                            icon: <VideoCameraOutlined />,
-                            label: 'nav 2',
-                        },
-                        {
-                            key: '3',
-                            icon: <UploadOutlined />,
-                            label: 'nav 3',
-                        },
-                    ]}
-                />
-            </Sider>
+            <CommonAside />
             <Layout>
                 <Header
                     style={{
@@ -73,7 +44,7 @@ const Main = () => {
                         borderRadius: borderRadiusLG,
                     }}
                 >
-                <Outlet></Outlet>
+                    <Outlet></Outlet>
                 </Content>
             </Layout>
         </Layout>
