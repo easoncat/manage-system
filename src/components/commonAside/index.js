@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { createElement } from 'react'
 import MenuConfig from '../../config'
-import {
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-} from '@ant-design/icons';
+import * as Icon from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 
+const itemToElement = (item) => {
+    return createElement(Icon[item])
+}
 
+const data = MenuConfig.map(item => {
+    let result = {
+        key: item.path,
+        icon: itemToElement(item.icon),
+        label: item.label
+    }
+    if(item.children) {
+        result.children = item.children.map(child => {
+            return {
+                key: child.path,
+                label: child.label
+            }
+        })
+    }
+    return result
+})
+console.log(data)
 
 
 
@@ -28,23 +44,7 @@ const CommonAside = () => {
                 style={{
                     height: "100%"
                 }}
-                items={[
-                    {
-                        key: '1',
-                        icon: <UserOutlined />,
-                        label: 'nav 1',
-                    },
-                    {
-                        key: '2',
-                        icon: <VideoCameraOutlined />,
-                        label: 'nav 2',
-                    },
-                    {
-                        key: '3',
-                        icon: <UploadOutlined />,
-                        label: 'nav 3',
-                    },
-                ]}
+                items={data}
             />
         </Sider>    
     )

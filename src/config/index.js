@@ -1,4 +1,4 @@
-export default [
+const config = [
     {
         path: '/home',
         name: 'home',
@@ -40,3 +40,5 @@ export default [
         ]
     },
 ]
+
+export default config
