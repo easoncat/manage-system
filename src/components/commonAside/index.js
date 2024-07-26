@@ -24,7 +24,6 @@ const data = MenuConfig.map(item => {
     }
     return result
 })
-console.log(data)
 
 
 

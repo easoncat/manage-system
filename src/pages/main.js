@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import {
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
-  } from '@ant-design/icons';
-import { Button, Layout, theme } from 'antd';
+import { Layout, theme } from 'antd';
 import CommonAside from '../components/commonAside';
-const { Header, Content } = Layout;
+import CommonHeader from '../components/commonHeader';
+const { Content } = Layout;
+
 
 const Main = () => {
-    const [collapsed, setCollapsed] = useState(false);
+    // const [collapsed, setCollapsed] = useState(false);
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
@@ -18,23 +16,7 @@ const Main = () => {
         <Layout className='main-container'>
             <CommonAside />
             <Layout>
-                <Header
-                    style={{
-                        padding: 0,
-                        background: colorBgContainer,
-                    }}
-                >
-                <Button
-                    type="text"
-                    icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                    onClick={() => setCollapsed(!collapsed)}
-                    style={{
-                        fontSize: '16px',
-                        width: 64,
-                        height: 64,
-                    }}
-                />
-                </Header>
+                <CommonHeader />
                 <Content
                     style={{
                         margin: '24px 16px',
