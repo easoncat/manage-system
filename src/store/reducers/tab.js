@@ -8,6 +8,9 @@ const tabSlice = createSlice({
     reducers: {
         collapseMenu: state => {
             state.isCollapse = !state.isCollapse
+        },
+        setName(state, action) {
+            state.age = 18
         }
     }
 })

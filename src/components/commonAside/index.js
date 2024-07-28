@@ -27,14 +27,10 @@ const data = MenuConfig.map(item => {
 
 
 
-const CommonAside = () => {
-    // const [collapsed, setCollapsed] = useState(false);
-    // const {
-    //     token: { colorBgContainer, borderRadiusLG },
-    // } = theme.useToken();
-
+const CommonAside = (props) => {
+    
     return (
-        <Sider trigger={null} collapsible>
+        <Sider trigger={null} collapsed={props.tabState}>
             <div className='app-name'>应用</div>
             <Menu
                 theme="dark"

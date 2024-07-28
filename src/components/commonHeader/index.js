@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, Layout, Avatar, Dropdown } from 'antd';
-import { MenuFoldOutlined } from '@ant-design/icons'
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { collapseMenu } from '../../store/reducers/tab';
 import './index.css'
 
 const { Header } = Layout;
 
-const CommonHeader = () => {
+const CommonHeader = (props) => {
     const items = [
         {
             key: '1',
@@ -18,12 +20,18 @@ const CommonHeader = () => {
         {
             key: '2',
             label: (
-                <a target="_blank" rel="noopener noreferrer">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
                     退出登录
                 </a>
             ),
         },
     ];
+
+    const dispatch = useDispatch();
+    const collapseChange  = () => {
+        dispatch(collapseMenu())
+        // props.clickHandler(props.tabState)
+    }
 
     return (
         <Header className='header-container'>
@@ -35,7 +43,8 @@ const CommonHeader = () => {
                     height: 32,
                     background: "#fff"
                 }}
-                icon={<MenuFoldOutlined />}
+                icon={props.tabState ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                onClick={collapseChange}
             />
             <Dropdown menu={{items}}>
                 <Avatar src={<img src={require("../../assets/images/user.png")} alt="avatar" />} />
