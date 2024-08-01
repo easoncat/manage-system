@@ -37,7 +37,7 @@ const CommonAside = (props) => {
                 mode="inline"
                 defaultSelectedKeys={['1']}
                 style={{
-                    height: "100%"
+                    height: "calc(100vh - 64px)"
                 }}
                 items={data}
             />

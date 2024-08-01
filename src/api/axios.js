@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = '/api'
+const baseUrl = 'api'
 
 // axios二次封装核心
 class HttpRequest {
@@ -10,7 +10,7 @@ class HttpRequest {
 
     getInsideConfig() {
         const config = {
-            baseUrl: this.baseUrl,
+            baseURL: this.baseUrl,
             header: {}
         }
         return config
@@ -22,8 +22,8 @@ class HttpRequest {
             // 2. 某些请求要求用户必须携带 token，如果没有携带，直接跳转到登录页面（登录鉴权）
             // 3. params/data 序列化操作
             // console.log(requser, '请求中间件')
-            request.baseURL = 'xx'
-            request.headers["token"] = 'xsdfadsgadgdas123'
+            // request.baseURL = 'xx'
+            // request.headers["token"] = 'xsdfadsgadgdas123'
             return request;
         }, err => {
 
@@ -46,4 +46,6 @@ class HttpRequest {
     }
 }
 
-export default new HttpRequest(baseUrl)
+const request = new HttpRequest(baseUrl)
+
+export default request
