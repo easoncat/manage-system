@@ -35,3 +35,43 @@
     margin-left: 80px;
     color: #666;
 }
+
+.home .num {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+
+.home .num .cardContainer {
+    margin-bottom: 5px;
+    width: 33%;
+}
+
+.home .num .ant-card-body {
+    display: flex;
+    padding: 10px 25px;
+}
+
+.home .num .cardIcon {
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 80px;
+    margin-right: 15px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.home .num .contentValue {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.home .num .contentTxt {
+    font-size: 14px;
+    text-align: center;
+    color: #9999
+}

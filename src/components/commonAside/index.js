@@ -4,7 +4,7 @@ import * as Icon from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 
-const itemToElement = (item) => {
+export const itemToElement = (item) => {
     return createElement(Icon[item])
 }
 
