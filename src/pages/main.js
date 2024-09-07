@@ -4,6 +4,8 @@ import { Layout, theme } from 'antd';
 import { useSelector } from 'react-redux';
 import CommonAside from '../components/commonAside';
 import CommonHeader from '../components/commonHeader';
+import CommonTag from '../components/commonTag';
+import { RouterAuth } from "../router/routerAuth.js"
 const { Content } = Layout;
 
 
@@ -21,25 +23,28 @@ const Main = () => {
     } = theme.useToken();
     
     return (
-        <Layout className='main-container'>
-            <CommonAside tabState={isCollapse}/>
-            {/* <CommonAside tabState={collapsed}/> */}
-            <Layout>
-                <CommonHeader tabState={isCollapse} />
-                {/* <CommonHeader clickHandler={collapseHandler} tabState={collapsed} /> */}
-                <Content
-                    style={{
-                        margin: '24px 16px',
-                        padding: 24,
-                        minHeight: 300,
-                        background: colorBgContainer,
-                        borderRadius: borderRadiusLG,
-                    }}
-                >
-                    <Outlet></Outlet>
-                </Content>
+        <RouterAuth>
+            <Layout className='main-container'>
+                <CommonAside tabState={isCollapse}/>
+                {/* <CommonAside tabState={collapsed}/> */}
+                <Layout>
+                    <CommonHeader tabState={isCollapse} />
+                    {/* <CommonHeader clickHandler={collapseHandler} tabState={collapsed} /> */}
+                    <CommonTag></CommonTag>
+                    <Content
+                        style={{
+                            margin: '24px 16px',
+                            padding: 24,
+                            minHeight: 300,
+                            background: colorBgContainer,
+                            borderRadius: borderRadiusLG,
+                        }}
+                    >
+                        <Outlet></Outlet>
+                    </Content>
+                </Layout>
             </Layout>
-        </Layout>
+        </RouterAuth>
     )
 }
 

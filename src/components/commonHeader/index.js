@@ -3,11 +3,19 @@ import { Button, Layout, Avatar, Dropdown } from 'antd';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { collapseMenu } from '../../store/reducers/tab';
+import { useNavigate } from 'react-router-dom';
 import './index.css'
 
 const { Header } = Layout;
 
 const CommonHeader = (props) => {
+    const navigate = useNavigate()
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        navigate("login")
+    }
+
     const items = [
         {
             key: '1',
@@ -20,7 +28,7 @@ const CommonHeader = (props) => {
         {
             key: '2',
             label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                <a onClick={() => logout()} target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
                     退出登录
                 </a>
             ),
